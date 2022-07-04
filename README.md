@@ -1,1 +1,1 @@
-![wireframe Concept](/assets/Images/massages_wireframe.png)
+![wireframe Concept](/assets/images/wireframe_concept.png)
