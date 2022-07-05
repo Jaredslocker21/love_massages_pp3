@@ -12,8 +12,13 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_massages_pp3')
 
-clients = SHEET.worksheet('clients')
+def get_client_info():
+    """
+    Get clients input data and add it to the google sheet 
+    """
 
-data = clients.get_all_values()
+    data_str = input('Enter your name here\n')
+    print(f"Your name is {data_str}")
 
-print(data)
+
+get_client_info()
