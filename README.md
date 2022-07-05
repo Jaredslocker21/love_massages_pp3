@@ -18,7 +18,9 @@
     to discuss your {type of massage} session.    
 
 ##   Testing
-    7/5 Tested that my google doc is being read and printed  in the console and it is.
+ * 7/5 Tested google doc is being read and data is printed in the console and it is.
+  Inputs are returning data and printing a response.
+ 
 
 
 

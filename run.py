@@ -18,7 +18,8 @@ def get_client_info():
     """
 
     data_str = input('Enter your name here\n')
+    data_email = input('Enter your email here\n')
     print(f"Your name is {data_str}")
-
+    print(f"Your email is {data_email}")
 
 get_client_info()
