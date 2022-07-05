@@ -41,4 +41,22 @@ def therapy_list():
     print('Select "3" for Rehabilitation Therapy')
 
 
-therapy_list()    
+therapy_list()  
+
+
+
+def main():
+    """
+    Run all program functions
+    """
+    data = get_client_data()
+    client_data = [int(num) for num in data]
+    update_worksheet(client_data, "client")
+    new_client_data = match_client_data(client_data)
+    receipt_for_client = new_client_data   
+  
+    update_worksheet(stock_data, "stock")
+
+
+print("Welcome to Love Massages ")
+main()
