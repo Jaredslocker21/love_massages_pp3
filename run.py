@@ -38,7 +38,7 @@ class Booking:
     def __init__(self, therapy):
         self.customer_name = customer_name
 
-    def set_email(self, therapy):
+    def set_email(self, email):
         self.email = email 
 
     def set_therapy(self, therapy):
@@ -47,3 +47,29 @@ class Booking:
     def set_therapist(self, therapist):
         self.therapist = therapist    
 
+def get_customer_name():
+    """ 
+    Get the customer name, validate the the input create the booking
+    """
+    #customer input
+    #validate the input
+    #create a booking
+    booking = Booking(customer_name)
+    return booking
+
+def  get_customer_email():
+    """ 
+    Get the customer email, validate and add it to the booking
+    """
+    #customer input
+    #validate
+    #create booking
+    booking = Booking(customer_email)
+
+def select_therapy(booking):
+    #display message
+    #validate therapy 
+    #get therapy name
+    booking.set_therapy(therapy_name)
+    return booking 
+ 
