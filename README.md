@@ -20,8 +20,9 @@
 ##   Testing
  * 7/5 Tested google doc is being read and data is printed in the console and it is.
   Inputs are returning data and printing a response.
+   7/6 refraactored my code and chart and my code making use of a class booking
  
 
 
-
+![wireframe concept](/assets/images/refractoredchart.png)
 ![wireframe Concept](/assets/images/wireframeupdate.png) 
