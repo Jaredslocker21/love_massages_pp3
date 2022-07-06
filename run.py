@@ -25,15 +25,14 @@ def welcome():
     """
     print(colored(('Wellcome to Love Massages.\n'), 'cyan'))
     print(colored(('Enter your Name and your Email address when prompted below:'), 'cyan'))
-    print(colored(('\n'), 'cyan'))
     print(colored(('Select your type of Massage Therapy \n'), 'cyan'))
     print(colored(('After that select your Massage Therapist.\n'), 'cyan'))
     print(colored(('All your selections will be logged with our administration and your therapist will contact you with more information.\n'), 'cyan'))
     
-welcome()
 
+#get client info
 client_info = []
-# love sandwiches example
+
 def get_client_info():
     """
     Get clients input data and add it to the google sheet 
@@ -43,8 +42,6 @@ def get_client_info():
     print(f"Your name is {data_str}")
     print(f"Your email is {data_email}")
 
-    
-
 def verify_client_info():
     """
     verify name and email is entered correctly letters and email
@@ -53,15 +50,15 @@ def verify_client_info():
         try:
 
 def update_client_worksheet():
+    """ 
+    Receives list of intergers to be inserted into a worksheet
+    Update the relevant worksheet with the data provided
     """
-    Update client information and append worksheet to a new row
-    """
-
-
-update_client_worksheet()
-verify_client_info()
-get_client_info()
-
+    print(f"Updating {worksheet} your client information....\n")
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.insert_row(client)
+    print(f"{worksheet} Adding your client data\n")
+#Choose your therapy
 def index_offered_therapy():
     """
     Function to index available  therapies
@@ -71,8 +68,8 @@ def index_offered_therapy():
     for title in titles:
         print(f' {index}. {title}')
         index += 1
-# Retrieve the different types of therapies from google docs
-def retrieve_therapy():
+
+def choose_therapy():
     """
   Display Therapies
     """
@@ -90,7 +87,7 @@ def retrieve_therapy():
     elif selection == '3':
         therapy_list('Rehabilitation')
     else:
-        print('\n Invalid choice.')
+        print('\n Invalid choice.') 
         print(' You may only choose one of the listed options.\n')
         return retrieve_therapy()
 
@@ -137,12 +134,12 @@ def index_therapist():
         print(f' {index}. {title}')
         index += 1
 
-
-
-
-
-
-def main()
+def main():
     """
     run all functions
     """
+    
+    update_client_worksheet()
+    verify_client_info()
+    get_client_info()
+main()
