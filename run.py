@@ -30,6 +30,20 @@ def welcome():
     print(colored(('Enter your Name and your Email address when prompted below:\n'), 'cyan'))
     print(colored(('Select your type of Massage Therapy \n'), 'cyan'))
     print(colored(('After that select your Massage Therapist.\n'), 'cyan'))
-    print(colored(('All your selections will be logged with our administration and your therapist will contact you with more information.\n'), 'cyan'))
+    print(colored(('Your booking will be made and you should see you confirmation.\n'), 'cyan'))
+
 welcome()
+
+class Booking:
+    def __init__(self, therapy):
+        self.customer_name = customer_name
+
+    def set_email(self, therapy):
+        self.email = email 
+
+    def set_therapy(self, therapy):
+        self.therapy = therapy
+
+    def set_therapist(self, therapist):
+        self.therapist = therapist    
 
