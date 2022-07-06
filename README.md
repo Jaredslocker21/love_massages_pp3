@@ -24,4 +24,4 @@
 
 
 
-![wireframe Concept](/assets/images/wireframe.png) 
+![wireframe Concept](/assets/images/wireframeupdate.png) 
