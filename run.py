@@ -28,7 +28,7 @@ def welcome():
     Introduction to the Application.
     """
     print(colored(('As a current member of love massages.\n'), 'cyan'))
-    print(colored(('Enter your Last Name when prompted below:\n'), 'cyan'))
+    print(colored(('Enter your Name when prompted below:\n'), 'cyan'))
     print(colored(('Select your type of Massage Therapy \n'), 'cyan'))
     print(colored(('After that select your Massage Therapist.\n'), 'cyan'))
     print(colored(('Your booking will be made and you should see you confirmation.\n'), 'cyan'))
@@ -36,7 +36,7 @@ def welcome():
 welcome()
 
 class Booking:
-    def __init__(self, therapy):
+    def __init__(self, customer_name):
         self.customer_name = customer_name
 
     def set_therapy(self, therapy):
@@ -45,18 +45,17 @@ class Booking:
     def set_therapist(self, therapist):
         self.therapist = therapist    
 
-def name_input():
+def customer_name():
     """
     The name_input function takes input from the user and stores it 
     in a variable that can be used further into the program
     """
    
     while True:
-        customer_name = input("PLEASE ENTER A NAME:\n").capitalize()
+        customer_name = input("Please enter your name for a booking:\n").capitalize()
         if check_customer_name(customer_name):
             break
     print(f"\n Your Booking will be referenced using {customer_name}\n")
-    print(' ')
     return customer_name
 
 
@@ -65,19 +64,26 @@ def check_customer_name(name):
     Funtion checks if the customers name is longer 
     than 10 or not long enough. 
     """
-    if len(name) > 10:
+    if len(name) > 20:
         print('INVALID NAME. Too long')
         return False
     elif len(name) == 0:
         print('Please enter your name')
     else:
         return True
-name_input()
+customer_name()        
+    # booking = Booking(customer_name)
+    # return booking
 # def select_therapy(booking):
 #     """ 
 #     Display types of therapy to the customer, validate and get therapy name
 #     """
 #     #display message
+print("\n Please select the type of Therapy you would like to receive. \n")
+print("Occuptaional Massage Therapy")
+print("Sports Massage Therapy")
+print("Rehabilitation Massage Therapy")
+print(THERAPIES)
 #     #validate therapy 
 #     #get therapy name
 #     booking.set_therapy(therapy_name)
@@ -85,6 +91,8 @@ name_input()
  
 # def select_therapist(booking):
 #     # display message
+print("Choose your therapist.")
+print(THERAPISTS)
 #     # validate the selected therapist
 #     # get the therapist name
 #     booking.set_therapist(therapist)
