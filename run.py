@@ -74,46 +74,46 @@ def check_customer_name(name):
 customer_name()        
     # booking = Booking(customer_name)
     # return booking
-# def select_therapy(booking):
-#     """ 
-#     Display types of therapy to the customer, validate and get therapy name
-#     """
-#     #display message
+def select_therapy(booking):
+    """ 
+     Display types of therapy to the customer, validate and get therapy name
+    """
+#display message
 print("\n Please select the type of Therapy you would like to receive. \n")
 print("Occuptaional Massage Therapy")
 print("Sports Massage Therapy")
 print("Rehabilitation Massage Therapy")
 print(THERAPIES)
-#     #validate therapy 
-#     #get therapy name
-#     booking.set_therapy(therapy_name)
-#     return booking 
+    #validate therapy 
+    #get therapy name
+    booking.set_therapy(therapy_name)
+     return booking 
  
-# def select_therapist(booking):
-#     # display message
+def select_therapist(booking):
+    # display message
 print("Choose your therapist.")
 print(THERAPISTS)
-#     # validate the selected therapist
-#     # get the therapist name
-#     booking.set_therapist(therapist)
-#     return booking   
+    # validate the selected therapist
+    # display the therapist name
+    booking.set_therapist(therapist)
+    return booking   
 
-# def save_booking(booking):
-#     #make google sheet connection
-#     #make google sheet call and save the data
+def save_booking(booking):
+    #make google sheet connection
+    #make google sheet call and save the data
 
-# def main():
-#     booking = get_customer_name()
-#     booking = get_customer_phone_number()
-#     select_therapy(booking)
-#     select_therapist(booking)
-#     save_booking(booking)
+def main():
+    booking = get_customer_name()
+    booking = get_customer_phone_number()
+    select_therapy(booking)
+    select_therapist(booking)
+    save_booking(booking)
 
-# selection = 1
+selection = 1
 
-# if not selection.isnumeric() or not (int(selection) < Therapies.length and int(selection) > 0)
+if not selection.isnumeric() or not (int(selection) < Therapies.length and int(selection) > 0)
 
-# def getSelectedTherapy(selection):
-#     return THERAPIES[selection-1]:
+def getSelectedTherapy(selection):
+    return THERAPIES[selection-1]:
 
-# main()
+main()
