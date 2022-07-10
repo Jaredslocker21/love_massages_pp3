@@ -44,6 +44,7 @@ class Booking:
 
     def select_therapist_name(self, select_therapist_name):
         self.select_therapist_name = select_therapist_name    
+ 
 
 def customer_name():
     """
@@ -71,8 +72,6 @@ def check_customer_name(name):
         print('Please enter your name')
     else:
         return True
-            
-customer_name()
 
 #Select your Therapy
 def select_therapy_name():
@@ -87,7 +86,7 @@ def select_therapy_name():
         therapy_name = input("Please enter therapy:\n").capitalize()
         if check_therapy_name(therapy_name):
             break
-    print(f"\n Your have chosen {therapy_name}\n")
+    print(f"\n You have chosen {therapy_name}\n")
     return select_therapy_name
 
 def check_therapy_name(name):
@@ -101,7 +100,6 @@ def check_therapy_name(name):
         print('Please enter your therapy name')
     else:
         return True
-select_therapy_name() 
 
 #SelectTherapist
 def select_therapist_name():
@@ -117,7 +115,7 @@ def select_therapist_name():
         therapist_name = input("Please select your Therapist by entering ther name:\n").capitalize()
         if check_therapist_name(therapist_name):
             break
-    print(f"\n Your have chosen {therapist_name}\n")
+    print(f"\n You have chosen {therapist_name}\n")
     return select_therapist_name
 
 def check_therapist_name(name):
@@ -131,23 +129,15 @@ def check_therapist_name(name):
         print('Please enter the therapist name')
     else:
         return True
-select_therapist_name()
-booking = Booking(customer_name, select_therapy_name, select_therapist_name)
-
-print(booking)
-
- 
 
 # def save_booking(booking):
 #     #make google sheet connection
 #     #make google sheet call and save the data
 
-# def main():
-#     booking = get_customer_name()
-#     booking = get_customer_phone_number()
-#     select_therapy(booking)
-#     select_therapist(booking)
-#     save_booking(booking)
+def main():
+    booking = customer_name()
+    select_therapy_name()
+    select_therapist_name()
 
 # selection = 1
 
@@ -156,4 +146,4 @@ print(booking)
 # def getSelectedTherapy(selection):
 #     return THERAPIES[selection-1]:
 
-# main()
+main()
