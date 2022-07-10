@@ -39,11 +39,16 @@ class Booking:
     def __init__(self, customer_name):
         self.customer_name = customer_name
 
-    def set_therapy(self, therapy):
-        self.therapy_name = therapy_name
+    def select_therapy_name(self, select_therapy_name):
+        self.select_therapy_name = select_therapy_name
 
-    def set_therapist(self, therapist):
-        self.therapist_name = therapist_name    
+    def select_therapist_name(self, select_therapist_name):
+        self.therapist_name = select_therapist_name   
+
+    def update_worksheet(self,update_worksheet):
+        self.update_worksheet = update_worksheet    
+
+    
 # Customer Name
 def customer_name():
     """
@@ -79,11 +84,11 @@ customer_name()
 def select_therapy_name():
     """
     The select_name_therapy function takes input from the user and stores it 
-    in a variable that can be used further into the program
+    in a variable to be called by booking
     """
     while True:
         print("\n Please select the type of Therapy you would like to receive. \n")
-        print(THERAPIES)
+        print(*THERAPIES)
    
         therapy_name = input("Please enter therapy:\n").capitalize()
         if check_therapy_name(therapy_name):
@@ -109,12 +114,13 @@ select_therapy_name()
 #SelectTherapist
 def select_therapist_name():
     """
-    The select_name_therapy function takes input from the user and stores it 
-    in a variable that can be used further into the program
+    The select_name_therapist function takes input from the user and stores it 
+    as a variable to be called later to print booking
     """
     while True:
         print("\n Your Therapist are: \n")        
         print(THERAPISTS)
+        
    
         therapist_name = input("Please select your Therapist by entering ther name:\n").capitalize()
         if check_therapist_name(therapist_name):
@@ -130,17 +136,23 @@ def check_therapist_name(therapist_name):
         print('INVALID THERAPIST')
         return False
     elif len(therapist_name) == 0:
-        print('Please enter your name')
+        print('Please enter the therapist name')
     else:
         return True
     booking = Booking(therapist_name)
     return booking
 select_therapist_name()
 
-
-# def save_booking(booking):
-#     #make google sheet connection
-#     #make google sheet call and save the data
+# Update worksheet
+def update_worksheet(booking, worksheet):
+    """
+    Get Strings and save them to google sheet
+        """
+    print(f"Updating {worksheet} booking ....\n")
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(bookings)
+    print(f"{worksheet} worksheet updated successfully\n")
+update_worksheet(Booking, worksheet)
 
 # def main():
 #     booking = get_customer_name()
