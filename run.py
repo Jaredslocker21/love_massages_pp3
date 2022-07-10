@@ -21,6 +21,7 @@ SHEET = GSPREAD_CLIENT.open('love_massages_pp3')
 
 THERAPIES = ['Occupational Massage', 'Sports Massage', 'Rehabilitation Massage' ]
 THERAPISTS = ['Jared', 'Tor', 'Victoria']
+Booking = {""}
 
 
 def welcome():
@@ -36,7 +37,7 @@ def welcome():
 welcome()
 
 class Booking:
-    def __init__(self, customer_name):
+    def __init__(self, customer_name,):
         self.customer_name = customer_name
 
     def select_therapy_name(self, select_therapy_name):
@@ -75,7 +76,7 @@ def check_customer_name(name):
         return True
 
 #Select your Therapy
-def select_therapy_name():
+def select_therapy_name(booking):
     """
     The select_name_therapy function takes input from the user and stores it 
     in a variable to be called by booking
@@ -106,8 +107,8 @@ def check_therapy_name(name):
     else:
         return True
 
-#SelectTherapist
-def select_therapist_name():
+#Select Therapist
+def select_therapist_name(booking):
     """
     The select_name_therapist function takes input from the user and stores it 
     as a variable to be called later to print booking
@@ -142,11 +143,25 @@ def check_therapist_name(name):
 # def save_booking(booking):
 #     #make google sheet connection
 #     #make google sheet call and save the data
+def update_worksheet(data, worksheet):
+    """ 
+    Receives list of intergers to be inserted into a worksheet
+    Update the relevant worksheet with the data provided
+        """
+    
+    print(f"Updating {worksheet} worksheet....\n")
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
+    print(f"{worksheet} worksheet updated successfully\n")
 
 def main():
+    
     booking = select_customer_name()
-    select_therapy_name()
-    select_therapist_name()
+    #data = select_therapist_name(booking)
+    select_therapy_name(booking)
+    select_therapist_name(booking)
+    update_worksheet(booking, "bookings")
+   
 
 # selection = 1
 
