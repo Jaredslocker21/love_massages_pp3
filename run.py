@@ -154,6 +154,19 @@ def update_worksheet(data, worksheet):
     worksheet_to_update.append_row(data)
     print(f"{worksheet} worksheet updated successfully\n")
 
+def save_booking_list(booking,   worksheet):
+    """ 
+    Receives list of intergers to be inserted into a worksheet
+    Update the relevant worksheet with the data provided
+    """
+    #work in progress
+    #trying to create a list and pass it through booking 
+	save_booking_list = []
+save_booking_list = save_booking_list.append(data)
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
+    print(f"{worksheet} worksheet updated successfully\n")
+
 def main():
     
     booking = select_customer_name()
@@ -161,6 +174,7 @@ def main():
     select_therapy_name(booking)
     select_therapist_name(booking)
     update_worksheet(booking, "bookings")
+    save_booking_list()
    
 
 # selection = 1
