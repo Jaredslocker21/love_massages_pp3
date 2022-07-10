@@ -46,7 +46,7 @@ class Booking:
         self.select_therapist_name = select_therapist_name    
  
 
-def customer_name():
+def select_customer_name():
     """
     The name_input function takes input from the user and stores it 
     in a variable that can be used further into the program
@@ -57,9 +57,10 @@ def customer_name():
         if check_customer_name(customer_name):
             break
     print(f"\n Your Booking will be referenced using {customer_name}\n")
-    return customer_name
-
-
+    booking = Booking(customer_name)
+    return booking
+    
+    
 def check_customer_name(name):
     """
     Funtion checks if the customers name is longer 
@@ -87,7 +88,11 @@ def select_therapy_name():
         if check_therapy_name(therapy_name):
             break
     print(f"\n You have chosen {therapy_name}\n")
-    return select_therapy_name
+    booking = Booking(therapy_name)
+    booking.select_therapy_name(therapy_name)
+    print(booking.select_therapy_name)
+    return booking
+    
 
 def check_therapy_name(name):
     """
@@ -116,7 +121,11 @@ def select_therapist_name():
         if check_therapist_name(therapist_name):
             break
     print(f"\n You have chosen {therapist_name}\n")
-    return select_therapist_name
+    booking = Booking(therapist_name)
+    booking.select_therapist_name(therapist_name)
+    print(booking.select_therapist_name)
+    return booking
+    #return select_therapist_name
 
 def check_therapist_name(name):
     """
@@ -135,7 +144,7 @@ def check_therapist_name(name):
 #     #make google sheet call and save the data
 
 def main():
-    booking = customer_name()
+    booking = select_customer_name()
     select_therapy_name()
     select_therapist_name()
 
@@ -145,5 +154,4 @@ def main():
 
 # def getSelectedTherapy(selection):
 #     return THERAPIES[selection-1]:
-
 main()
