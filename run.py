@@ -21,7 +21,7 @@ SHEET = GSPREAD_CLIENT.open('love_massages_pp3')
 
 THERAPIES = ['Occupational Massage', 'Sports Massage', 'Rehabilitation Massage' ]
 THERAPISTS = ['Jared', 'Tor', 'Victoria']
-Booking = {""}
+Booking = []
 
 
 def welcome():
@@ -143,6 +143,7 @@ def check_therapist_name(name):
 # def save_booking(booking):
 #     #make google sheet connection
 #     #make google sheet call and save the data
+# currently not updating to google sheet but is being called to booking tab in google sheet
 def update_worksheet(data, worksheet):
     """ 
     Receives list of intergers to be inserted into a worksheet
@@ -161,8 +162,8 @@ def save_booking_list(booking,   worksheet):
     """
     #work in progress
     #trying to create a list and pass it through booking 
-	save_booking_list = []
-save_booking_list = save_booking_list.append(data)
+    save_booking_list = []
+    save_booking_list = save_booking_list.append(data)
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
     print(f"{worksheet} worksheet updated successfully\n")
