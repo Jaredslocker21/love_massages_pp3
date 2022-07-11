@@ -156,6 +156,5 @@ def main():
     select_therapy_name(booking)
     select_therapist_name(booking)
     update_worksheet(booking, "bookings")
-    save_booking_list()
 
 main()
