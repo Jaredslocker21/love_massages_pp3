@@ -19,7 +19,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_massages_pp3')
 
-THERAPIES = ['Occupational Massage', 'Sports Massage', 'Rehabilitation Massage' ]
+THERAPIES = ['Occupational Massage', 'Sports Massage', 'Rehabilitation Massage']
 THERAPISTS = ['Jared', 'Tor', 'Victoria']
 Booking = []
 
@@ -42,10 +42,13 @@ class Booking:
         self.customer_name = customer_name
 
     def select_therapy_name(self, select_therapy_name):
-        self.select_therapy_name = select_therapy_name
+        self.therapy_name = select_therapy_name
 
     def select_therapist_name(self, select_therapist_name):
-        self.select_therapist_name = select_therapist_name    
+        self.therapist_name = select_therapist_name   
+    
+    def get_booking_data(self):    
+        return [self.customer_name, self.therapy_name, self.therapist_name] 
  
 
 def select_customer_name():
@@ -90,9 +93,7 @@ def select_therapy_name(booking):
         if check_therapy_name(therapy_name):
             break
     print(f"\n You have chosen {therapy_name}\n")
-    booking = Booking(therapy_name)
     booking.select_therapy_name(therapy_name)
-    print(booking.select_therapy_name)
     return booking
     
 
@@ -123,11 +124,8 @@ def select_therapist_name(booking):
         if check_therapist_name(therapist_name):
             break
     print(f"\n You have chosen {therapist_name}\n")
-    booking = Booking(therapist_name)
     booking.select_therapist_name(therapist_name)
-    print(booking.select_therapist_name)
     return booking
-    #return select_therapist_name
 
 def check_therapist_name(name):
     """
@@ -141,10 +139,6 @@ def check_therapist_name(name):
     else:
         return True
 
-
-     #make google sheet connection
-     #make google sheet call and save the data
-     # currently not updating to google sheet but is being called to booking tab in google sheet
 def update_worksheet(data, worksheet):
     """ 
     Receives list of intergers to be inserted into a worksheet
@@ -153,41 +147,15 @@ def update_worksheet(data, worksheet):
     
     print(f"Updating {worksheet} worksheet....\n")
     worksheet_to_update = SHEET.worksheet(worksheet)
-    worksheet_to_update.append_row(data)
-    print(f"{worksheet} worksheet updated successfully\n")
-
-def save_booking_list(booking,   worksheet):
-    """ 
-    Receives list of intergers to be inserted into a worksheet
-    Update the relevant worksheet with the data provided
-    """
-    #work in progress
-    #trying to create a list and pass it through booking 
-    # worksheet is called bookings
-    
-
-    save_booking_list = []
-    save_booking_list = save_booking_list.append(data)
-    worksheet_to_update = SHEET.worksheet(worksheet)
-    worksheet_to_update.append_row(data)
+    worksheet_to_update.append_row(data.get_booking_data())
     print(f"{worksheet} worksheet updated successfully\n")
 
 def main():
     
     booking = select_customer_name()
-    #data = select_therapist_name(booking)
     select_therapy_name(booking)
     select_therapist_name(booking)
     update_worksheet(booking, "bookings")
     save_booking_list()
 
 main()
-
-   
-
-# selection = 1
-
-# if not selection.isnumeric() or not (int(selection) < Therapies.length and int(selection) > 0)
-
-# def getSelectedTherapy(selection):
-#     return THERAPIES[selection-1]:
