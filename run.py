@@ -29,6 +29,7 @@ def welcome():
     Introduction to the Application.
     """
     print(colored(('As a current member of love massages.\n'), 'cyan'))
+    print(colored(('You are welcome to a free massage through your membership.\n'), 'cyan'))
     print(colored(('Enter your Name when prompted below:\n'), 'cyan'))
     print(colored(('Select your type of Massage Therapy \n'), 'cyan'))
     print(colored(('After that select your Massage Therapist.\n'), 'cyan'))
@@ -176,6 +177,9 @@ def main():
     select_therapist_name(booking)
     update_worksheet(booking, "bookings")
     save_booking_list()
+
+main()
+
    
 
 # selection = 1
@@ -184,4 +188,3 @@ def main():
 
 # def getSelectedTherapy(selection):
 #     return THERAPIES[selection-1]:
-main()
