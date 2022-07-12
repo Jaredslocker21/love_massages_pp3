@@ -1,10 +1,7 @@
 """
 Import section
 """
-import os
-import sys
 from termcolor import colored
-from pprint import pprint
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -35,6 +32,7 @@ def welcome():
     print(colored(('After that select your Therapist.\n'), 'cyan'))
     print(colored(('Your booking will be made.\n'), 'cyan'))
 
+
 welcome()
 
 
@@ -62,7 +60,7 @@ def select_customer_name():
                               "name for a booking:\n").capitalize()
         if check_customer_name(customer_name):
             break
-    print (colored((f"\nYour Booking reference is {customer_name}\n"), "blue"))
+    print (colored((f"\nYour booking reference is {customer_name}\n"), "blue"))
     booking = Booking(customer_name)
     return booking
 
@@ -158,4 +156,6 @@ def main():
     select_therapy_name(booking)
     select_therapist_name(booking)
     update_worksheet(booking, "bookings")
+
+
 main()
