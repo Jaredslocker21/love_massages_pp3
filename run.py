@@ -25,12 +25,14 @@ def welcome():
     """
     Introduction to the Application.
     """
-    print(colored(('As a current member of love massages.\n'), 'cyan'))
-    print(colored(('You are welcome to a free massage.\n'), 'cyan'))
+    print(colored(('As a current member of Love Massages.\n'), 'cyan'))
+    print(colored(('You are welcome to a FREE Massage.\n'), 'cyan'))
     print(colored(('Enter your Name when prompted below:\n'), 'cyan'))
     print(colored(('Select your type of Massage Therapy \n'), 'cyan'))
-    print(colored(('After that select your Therapist.\n'), 'cyan'))
+    print(colored(('Select your Therapist.\n'), 'cyan'))
     print(colored(('Your booking will be made.\n'), 'cyan'))
+    print(colored(('We will contact you shortly\n'), 'cyan'))
+    
 
 
 welcome()
@@ -57,7 +59,7 @@ def select_customer_name():
     """
     while True:
         customer_name = input("Please enter your"
-                              "name for a booking:\n").capitalize()
+                              " name for a booking:\n").capitalize()
         if check_customer_name(customer_name):
             break
     print (colored((f"\nYour booking reference is {customer_name}\n"), "blue"))
