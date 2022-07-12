@@ -19,8 +19,8 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_massages_pp3')
 
-THERAPIES = ['Occupational Massage', 'Sports Massage', 'Rehabilitation Massage']
-THERAPISTS = ['Jared', 'Tor', 'Victoria']
+THERAPIES = ['Occupational Massage:', 'Sports Massage:', 'Rehabilitation Massage:']
+THERAPISTS = ['Jared:', 'Tor:', 'Victoria:']
 Booking = []
 
 
@@ -50,7 +50,6 @@ class Booking:
     def get_booking_data(self):    
         return [self.customer_name, self.therapy_name, self.therapist_name] 
  
-
 def select_customer_name():
     """
     The name_input function takes input from the user and stores it 
@@ -64,7 +63,6 @@ def select_customer_name():
     print(f"\n Your Booking will be referenced using {customer_name}\n")
     booking = Booking(customer_name)
     return booking
-    
     
 def check_customer_name(name):
     """
@@ -85,9 +83,10 @@ def select_therapy_name(booking):
     The select_name_therapy function takes input from the user and stores it 
     in a variable to be called by booking
     """
+    
     while True:
         print("\n Please select the type of Therapy you would like to receive. \n")
-        print(*THERAPIES)
+        print(*THERAPIES, sep='\n')
    
         therapy_name = input("Please enter therapy:\n").capitalize()
         if check_therapy_name(therapy_name):
@@ -96,7 +95,6 @@ def select_therapy_name(booking):
     booking.select_therapy_name(therapy_name)
     return booking
     
-
 def check_therapy_name(name):
     """
     Check if ther Therapy Chosen is Correct
@@ -113,14 +111,14 @@ def check_therapy_name(name):
 def select_therapist_name(booking):
     """
     The select_name_therapist function takes input from the user and stores it 
-    as a variable to be called later to print booking
+    as a variable( to be called later to print booking
     """
     while True:
         print("\n Your Therapist are: \n")        
-        print(*THERAPISTS)
+        print(*THERAPISTS, sep='\n')
         
    
-        therapist_name = input("Please select your Therapist by entering ther name:\n").capitalize()
+        therapist_name = input("Please select your Therapist by entering their name:\n").capitalize()
         if check_therapist_name(therapist_name):
             break
     print(f"\n You have chosen {therapist_name}\n")
@@ -156,5 +154,7 @@ def main():
     select_therapy_name(booking)
     select_therapist_name(booking)
     update_worksheet(booking, "bookings")
-
+    
+    print(booking)
+    
 main()
