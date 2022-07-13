@@ -93,27 +93,24 @@ def select_therapy_name(booking):
 
     i = input("Enter number: ")
     try:
-        if 0 < int(i) <= len(THERAPIES):
-            return int(i) - 1
-    except:
+        if int(input) == 1:
+            print('Sprots MAssage')
+        elif int(input) == 0:
+            print('Please enter your therapy name')
+        else:
+            return True
         pass
         return booking
-    #     booking.select_therapy_name(therapy_name)
+    # booking.select_therapy_name(therapy_name)
     # return booking
 
 
 
-def check_therapy_name(name):
-    """
-    Check if ther Therapy Chosen is Correct
-    """
-    if len(name) > 20:
-        print('INVALID NAME. Too long')
-        return False
-    elif len(name) == 0:
-        print('Please enter your therapy name')
-    else:
-        return True
+# #def check_therapy_name(input):
+#     """
+#     Check if ther Therapy Chosen is Correct
+#     """
+ 
 
 
 def select_therapist_name(booking):

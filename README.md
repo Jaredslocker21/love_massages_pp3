@@ -22,7 +22,7 @@
   Inputs are returning data and printing a response.
    7/6 refraactored my code and chart and my code making use of a class booking
  
-
-
+![pep8 no errors](/assets/images/pepnoerrors.png)
+![pep8 Errors](/assets/images/peperrors.png)
 ![wireframe concept](/assets/images/refractoredchart.png)
 ![wireframe Concept](/assets/images/wireframeupdate.png) 
