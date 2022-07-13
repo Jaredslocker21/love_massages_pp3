@@ -17,8 +17,8 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_massages_pp3')
 
 THERAPIES = ['Occupational Massage:', 'Sports Massage:',
-             'Rehabilitation Massage:']
-THERAPISTS = ['Jared:', 'Tor:', 'Victoria:']
+             'Rehabilitation Massage', 'Relaxation']
+THERAPISTS = ['Jared:', 'Tor:', 'Victoria','Akshat']
 
 
 def welcome():
@@ -32,137 +32,113 @@ def welcome():
     print(colored(('Select your Therapist.\n'), 'cyan'))
     print(colored(('Your booking will be made.\n'), 'cyan'))
     print(colored(('We will contact you shortly\n'), 'cyan'))
-    
-
-
-welcome()
 
 
 class Booking:
-    def __init__(self, customer_name,):
+    def __init__(self, customer_name):
         self.customer_name = customer_name
 
-    def select_therapy_name(self, select_therapy_name):
-        self.therapy_name = select_therapy_name
+    def set_therapy_name(self, therapy_name):
+        self.therapy_name = therapy_name
 
-    def select_therapist_name(self, select_therapist_name):
-        self.therapist_name = select_therapist_name
+    def set_therapist_name(self, therapist_name):
+        self.therapist_name = therapist_name
 
     def get_booking_data(self):
         return [self.customer_name, self.therapy_name, self.therapist_name]
 
 
-def select_customer_name():
+def select_customer_name_and_get_booking():
     """
     The name_input function takes input from the user and stores it
     in a variable that can be used further into the program
     """
-    while True:
-        customer_name = input("Please enter your"
-                              " name for a booking:\n").capitalize()
-        if check_customer_name(customer_name):
-            break
+    customer_name = take_customer_name_input()
     print (colored((f"\nYour booking reference is {customer_name}\n"), "blue"))
     booking = Booking(customer_name)
     return booking
 
 
-def check_customer_name(name):
+def take_customer_name_input():
     """
-    Funtion checks if the customers name is longer
+    Funtion takes customers name input and does validations is longer
     than 10 or not long enough.
     """
-    if len(name) > 20:
-        print('INVALID NAME. Too long')
-        return False
-    elif len(name) == 0:
-        print('Please enter your name')
-    else:
-        return True
+    try:
+        customer_name = input("Please enter your"
+                                " name for a booking:\n").capitalize()
+        if len(customer_name) > 20:
+            raise ValueError('INVALID NAME. Too long')
+        elif len(customer_name) == 0:
+             raise ValueError('Name cannot be empty')
+        return customer_name
+    except ValueError as error_msg:
+        print(error_msg)
+        return take_customer_name_input()
 
 
-def select_therapy_name(booking):
+
+def set_therapy_name(booking):
     """
     The select_name_therapy function takes input from the user and stores it
     in a variable to be called by booking
     """
-    print("Please choose your Therapy:")
-
-    for idx, therapy in enumerate(THERAPIES):
-        print("{}) {}".format(idx + 1, therapy))
-
-    i = input("Enter number: ")
     try:
-        if int(i) == 1:
-            print('You have chosen Occupational Massage')
-        elif int(i) == 2:
-            print('You have chosen Sports Massage')
-        elif int(i) == 3:
-            print('You have chosen Rehabilitation Therapy')    
-        else:
-            return True
-        pass
-        return booking
-    # booking.select_therapy_name(therapy_name)
-    # return booking
+        print("Please choose your Therapy:")
+        for idx, therapy in enumerate(THERAPIES):
+            print("{}) {}".format(idx + 1, therapy))
+        choice_idx = int(input("Enter choice: "))
+        if choice_idx > 0 and choice_idx <= len(THERAPIES):
+            print('You have chosen ' + THERAPIES[choice_idx - 1])
+            booking.set_therapy_name(THERAPIES[choice_idx - 1])
+            return booking
+        raise ValueError("Invalid choice")
+    except ValueError as error_msg:
+        print(error_msg)
+        return set_therapy_name(booking)
 
 
-
-# #def check_therapy_name(input):
-#     """
-#     Check if ther Therapy Chosen is Correct
-#     """
- 
-
-
-def select_therapist_name(booking):
+def set_therapist_name(booking):
     """
-    The select_name_therapist function takes
-    input from the user and stores it
-    as a variable( to be called later to print booking
+    The select_name_therapy function takes input from the user and stores it
+    in a variable to be called by booking
     """
-    while True:
+    try:
         print("\n Your Therapist's are: \n")
-        print(*THERAPISTS, sep='\n')
-        therapist_name = input("Please type Therapist name:\n").capitalize()
-        if check_therapist_name(therapist_name):
-            break
-    print(colored((f"\n You have chosen {therapist_name}\n"), "blue"))
-    booking.select_therapist_name(therapist_name)
-    return booking
+        for idx, therapy in enumerate(THERAPISTS):
+            print("{}) {}".format(idx + 1, therapy))
+        choice_idx = int(input("Enter choice: "))
+        if choice_idx > 0 and choice_idx <= len(THERAPISTS):
+            print('You have chosen ' + THERAPISTS[choice_idx - 1])
+            booking.set_therapist_name(THERAPISTS[choice_idx - 1])
+            return booking
+        raise ValueError("Invalid choice")
+    except ValueError as error_msg:
+        print(error_msg)
+        return set_therapist_name(booking)
 
 
-def check_therapist_name(name):
-    """
-    Check if the Therapist Chosen is Correctly
-    """
-    if len(name) > 20:
-        print('INVALID THERAPIST')
-        return False
-    elif len(name) <= 0:
-        print('Please enter the therapist name')
-    else:
-        return True
-
-
-def update_worksheet(data, worksheet):
+def update_worksheet(booking):
     """
     Receives list of intergers to be inserted into a worksheet
     Update the relevant worksheet with the data provided
         """
-    print(colored((f"Updating our {worksheet} is in progress.\n"), "magenta"))
-    worksheet_to_update = SHEET.worksheet(worksheet)
-    worksheet_to_update.append_row(data.get_booking_data())
+    print(colored((f"Updating our bookings is in progress.\n"), "magenta"))
+    worksheet_to_update = SHEET.worksheet("bookings")
+    worksheet_to_update.append_row(booking.get_booking_data())
+    print(colored(("Thank you {} for choosing {} for {}".format(booking.customer_name, booking.therapist_name, booking.therapy_name)), "magenta"))
     print(colored(("Thank you for choosing Love Massages!\n"), "magenta"))
     print(colored(("Your booking has been updated!\n"), "magenta"))
     print(colored(("Your therapist will be contacting you.\n"), "magenta"))
 
 
+
 def main():
-    booking = select_customer_name()
-    select_therapy_name(booking)
-    select_therapist_name(booking)
-    update_worksheet(booking, "bookings")
+    welcome()
+    booking = select_customer_name_and_get_booking()
+    set_therapy_name(booking)
+    set_therapist_name(booking)
+    update_worksheet(booking)
 
 
 main()
