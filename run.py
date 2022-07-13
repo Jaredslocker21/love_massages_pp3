@@ -94,9 +94,11 @@ def select_therapy_name(booking):
     i = input("Enter number: ")
     try:
         if int(input) == 1:
-            print('Sprots MAssage')
-        elif int(input) == 0:
-            print('Please enter your therapy name')
+            print('Occupational Massage')
+        elif int(input) == 2:
+            print('Sports Massage')
+        elif int(input) == 3:
+            print('Rehabilitation Therapy')    
         else:
             return True
         pass
