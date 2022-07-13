@@ -18,7 +18,7 @@ SHEET = GSPREAD_CLIENT.open('love_massages_pp3')
 
 THERAPIES = ['Occupational Massage:', 'Sports Massage:',
              'Rehabilitation Massage', 'Relaxation']
-THERAPISTS = ['Jared:', 'Tor:', 'Victoria','Akshat']
+THERAPISTS = ['Jared', 'Tor', 'Victoria','Akshat']
 
 
 def welcome():
@@ -107,7 +107,7 @@ def set_therapist_name(booking):
         print("\n Your Therapist's are: \n")
         for idx, therapy in enumerate(THERAPISTS):
             print("{}) {}".format(idx + 1, therapy))
-        choice_idx = int(input("Enter choice: "))
+        choice_idx = int(input("Enter choice: \n"))
         if choice_idx > 0 and choice_idx <= len(THERAPISTS):
             print('You have chosen ' + THERAPISTS[choice_idx - 1])
             booking.set_therapist_name(THERAPISTS[choice_idx - 1])
@@ -126,9 +126,8 @@ def update_worksheet(booking):
     print(colored((f"Updating our bookings is in progress.\n"), "magenta"))
     worksheet_to_update = SHEET.worksheet("bookings")
     worksheet_to_update.append_row(booking.get_booking_data())
-    print(colored(("Thank you {} for choosing {} for {}".format(booking.customer_name, booking.therapist_name, booking.therapy_name)), "magenta"))
-    print(colored(("Thank you for choosing Love Massages!\n"), "magenta"))
-    print(colored(("Your booking has been updated!\n"), "magenta"))
+    print(colored(("Thank you {} for choosing {} for {}".format(booking.customer_name, booking.therapist_name, booking.therapy_name)), "yellow"))
+    print(colored(("\nYour booking has been updated!\n"), "magenta"))
     print(colored(("Your therapist will be contacting you.\n"), "magenta"))
 
 
