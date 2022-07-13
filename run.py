@@ -86,15 +86,21 @@ def select_therapy_name(booking):
     The select_name_therapy function takes input from the user and stores it
     in a variable to be called by booking
     """
-    while True:
-        print("\n Please select the type of Therapy.\n")
-        print(*THERAPIES, sep='\n')
-        therapy_name = input("Please enter therapy:\n").capitalize()
-        if check_therapy_name(therapy_name):
-            break
-    print(colored((f"\n You have chosen {therapy_name}\n"), "blue"))
-    booking.select_therapy_name(therapy_name)
-    return booking
+    print("Please choose your Therapy:")
+
+    for idx, therapy in enumerate(THERAPIES):
+        print("{}) {}".format(idx + 1, therapy))
+
+    i = input("Enter number: ")
+    try:
+        if 0 < int(i) <= len(THERAPIES):
+            return int(i) - 1
+    except:
+        pass
+        return booking
+    #     booking.select_therapy_name(therapy_name)
+    # return booking
+
 
 
 def check_therapy_name(name):
