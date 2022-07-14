@@ -26,11 +26,11 @@ def welcome():
     Introduction to the Application.
     """
     print(colored(('\n As a current member of Love Massages.\n'), 'cyan'))
-    print(colored(('You are welcome to a FREE Massage.\n'), 'cyan'))
-    print(colored(('Enter your Name when prompted below:\n'), 'cyan'))
-    print(colored(('Select your type of Massage Therapy \n'), 'cyan'))
-    print(colored(('Select your Therapist.\n'), 'cyan'))
-    print(colored(('Your booking will be made.\n'), 'cyan'))
+    print(colored(('You are welcome to a FREE Massage.\n'), 'red'))
+    print(colored(('Enter your Name when prompted below.\n'), 'cyan'))
+    print(colored(('Select your type of Massage Therapy \n'), 'red'))
+    print(colored(('Select your Therapist on duty\n'), 'cyan'))
+    print(colored(('Your booking will be made under your name.\n'), 'red'))
     print(colored(('We will contact you shortly\n'), 'cyan'))
 
 
