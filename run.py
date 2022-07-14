@@ -66,11 +66,13 @@ def take_customer_name_input():
     """
     try:
         customer_name = input("Please enter your"
-                                " name for a booking:\n").capitalize()
-        if len(customer_name) > 20:
+                              " name for a booking:\n").capitalize()
+        if customer_name.isnumeric():
+            raise ValueError('Please enter letters A-Z')
+        elif len(customer_name) > 20:
             raise ValueError('INVALID NAME. Too long')
         elif len(customer_name) == 0:
-             raise ValueError('Name cannot be empty')
+            raise ValueError('Name cannot be empty')
         return customer_name
     except ValueError as error_msg:
         print(error_msg)
