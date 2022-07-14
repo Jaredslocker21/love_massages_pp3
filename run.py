@@ -17,7 +17,7 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('love_massages_pp3')
 
 THERAPIES = ['Occupational Massage', 'Sports Massage',
-             'Rehabilitation Massage', 'Relaxation']
+             'Rehabilitation Massage', 'Relaxation Massage']
 THERAPISTS = ['Jared', 'Tor', 'Victoria', 'Akshat']
 
 
