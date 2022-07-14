@@ -25,7 +25,7 @@ def welcome():
     """
     Introduction to the Application.
     """
-    print(colored(('\n As a current member of Love Massages.\n'), 'cyan'))
+    print(colored(('\nAs a current member of Love Massages.\n'), 'cyan'))
     print(colored(('You are welcome to a FREE Massage.\n'), 'red'))
     print(colored(('Enter your Name when prompted below.\n'), 'cyan'))
     print(colored(('Select your type of Massage Therapy \n'), 'red'))
@@ -54,7 +54,7 @@ def select_customer_name_and_get_booking():
     in a variable that can be used further into the program
     """
     customer_name = take_customer_name_input()
-    print (colored((f"\nYour booking reference is {customer_name}\n"), "blue"))
+    print (colored((f"Your booking reference is {customer_name}\n"), "blue"))
     booking = Booking(customer_name)
     return booking
 
@@ -62,7 +62,7 @@ def select_customer_name_and_get_booking():
 def take_customer_name_input():
     """
     Funtion takes customers name input and does validations is longer
-    than 20, is a number or nothing. 
+    than 20, is a number or nothing.
     """
     try:
         customer_name = input("Please enter your"
@@ -79,18 +79,17 @@ def take_customer_name_input():
         return take_customer_name_input()
 
 
-
 def set_therapy_name(booking):
     """
     The select_name_therapy function takes input from the user and stores it
     in a variable to be called by booking
     """
     try:
-        print(colored(("Choose your Therapy. \n"),"yellow"))
+        print(colored(("Choose your Therapy. \n"), "yellow"))
         print("Select number 1-4 and Press ENTER.\n")
         for idx, therapy in enumerate(THERAPIES):
             print("{}) {}".format(idx + 1, therapy))
-        choice_idx = int(input("Enter choice: "))
+        choice_idx = int(input("Enter choice:\n"))
         if choice_idx > 0 and choice_idx <= len(THERAPIES):
             print('\n You have chosen ' + THERAPIES[choice_idx - 1])
             booking.set_therapy_name(THERAPIES[choice_idx - 1])
@@ -107,11 +106,11 @@ def set_therapist_name(booking):
     in a variable to be called by booking
     """
     try:
-        print(colored(("\n Choose your Therapist. \n"),"yellow"))
+        print(colored(("\n Choose your Therapist. \n"), "yellow"))
         print("Select number 1-4 and press ENTER.\n")
         for idx, therapy in enumerate(THERAPISTS):
             print("{}) {}".format(idx + 1, therapy))
-        choice_idx = int(input("Enter choice: \n"))
+        choice_idx = int(input("Enter choice:\n"))
         if choice_idx > 0 and choice_idx <= len(THERAPISTS):
             print('\n You have chosen ' + THERAPISTS[choice_idx - 1])
             booking.set_therapist_name(THERAPISTS[choice_idx - 1])
@@ -127,14 +126,14 @@ def update_worksheet(booking):
     Receives list of intergers to be inserted into a worksheet
     Update the relevant worksheet with the data provided
         """
-    print(colored((f"Updating our bookings is in progress."), "magenta"))
+    print(colored(("Updating our bookings is in progress."), "magenta"))
     worksheet_to_update = SHEET.worksheet("bookings")
     worksheet_to_update.append_row(booking.get_booking_data())
-    print(colored(("\n Thank you {} for choosing {} for {}"\
-        .format(booking.customer_name, booking.therapist_name, booking.therapy_name)), "yellow"))
+    print(colored(("\n Thank you {} for choosing {} for {}"
+                   .format(booking.customer_name, booking.therapist_name,
+                           booking.therapy_name)), "yellow"))
     print(colored(("\nYour booking has been updated!\n"), "magenta"))
     print(colored(("Your therapist will be contacting you.\n"), "magenta"))
-
 
 
 def main():
