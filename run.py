@@ -18,7 +18,7 @@ SHEET = GSPREAD_CLIENT.open('love_massages_pp3')
 
 THERAPIES = ['Occupational Massage', 'Sports Massage',
              'Rehabilitation Massage', 'Relaxation']
-THERAPISTS = ['Jared', 'Tor', 'Victoria','Akshat']
+THERAPISTS = ['Jared', 'Tor', 'Victoria', 'Akshat']
 
 
 def welcome():
@@ -87,7 +87,7 @@ def set_therapy_name(booking):
     """
     try:
         print(colored(("Choose your Therapy. \n"),"yellow"))
-        print("Type number 1,2 or 3 and Press ENTER.\n")
+        print("Select number 1-4 and Press ENTER.\n")
         for idx, therapy in enumerate(THERAPIES):
             print("{}) {}".format(idx + 1, therapy))
         choice_idx = int(input("Enter choice: "))
@@ -108,12 +108,12 @@ def set_therapist_name(booking):
     """
     try:
         print(colored(("\n Choose your Therapist. \n"),"yellow"))
-        print("\n Type number 1, 2 or 3 and press ENTER.")
+        print("Select number 1-4 and press ENTER.\n")
         for idx, therapy in enumerate(THERAPISTS):
             print("{}) {}".format(idx + 1, therapy))
         choice_idx = int(input("Enter choice: \n"))
         if choice_idx > 0 and choice_idx <= len(THERAPISTS):
-            print('You have chosen ' + THERAPISTS[choice_idx - 1])
+            print('\n You have chosen ' + THERAPISTS[choice_idx - 1])
             booking.set_therapist_name(THERAPISTS[choice_idx - 1])
             return booking
         raise ValueError("Invalid choice")
