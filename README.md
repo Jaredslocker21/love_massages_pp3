@@ -16,44 +16,48 @@
 
 To add function more Therapist's and Therapies can be added to the list's. Automatically adding them as a list item 1-4 or 5 or removing a list item will automatically shorten the displayed list.
 
+# Flow chart of the program functions
+
+![Flow Chart of the application](/assets/images/lucid_chart1.png)
+
 
 # UI and Communication
 
-## Colorful messages explaining their FREE MASSAGE and simple to follow instructions. Organized with further coloring to comminicate selections
-## and clarifications.
+## Colorful messages explaining their FREE MASSAGE and simple to follow instructions. 
+## Organized with further coloring to comminicate selections and clarifications.
 
+1. Welcome Message
 
 ![welcome message](/assets/images/welcomemessage.png)
 
-1. Enter your name prompt. After your name has been entered. A colorful message is printed to validate the members selection 
-    and the nect selection is prompted.
+2. Enter your name prompt. After your name has been entered. A colorful message is printed to validate the members selection and the next selection is prompted.
 
 
 ![Enter Name message](/assets/images/entername.png)    
 
-2. Select Therapy:
- Selection the type of Massage Therapy is a numerical selection: 1-4.
+3. Select Therapy:
+ Select the type of Massage Therapy is a numerical selection: 1-4.
 Both a numerical 1-4 selection and a press enter prompted
 After the selection is made a confirmation of the selection is printed
 
 ![Select Therapy](/assets/images/selecttherapy.png)    
 
 
-3. Select therapist: 
-    Selection the type of Massage Therapist is a numerical selection: 1-4.
+4. Select therapist: 
+    Select the type of Massage Therapist is a numerical selection: 1-4.
     Both a numerical 1-4 selection and a press enter prompted.
     After the selection is made a confirmation of the selection is printed
 
 ![Select Therapist](/assets/images/selecttherapist.png)        
 
 
-4. After every selection has been made a verification of the Clients name, therapy and therapist
+5. After every selection has been made a verification of the Clients name, therapy and therapist
     is printed back to the member and the booking is made in the google document for the backend administration.
 
 ![Thank You message](/assets/images/thankyoumessage.png)
 
 
-5. A cloud  google document is then updated as per the function of the application.
+6. A cloud  google document is then updated as per the function of the application.
 
 ![Google Document](/assets/images/google_cloud_document.png)
 
@@ -64,10 +68,11 @@ After the selection is made a confirmation of the selection is printed
 # Testing
  * 7/5 Tested google doc is being read and data is printed in the console and it is.
   Inputs are returning data and printing a response.
-   7/6 refraactored my code and chart and my code making use of a class booking
+
+  * 7/15 Lauren-Nicole for testing the application and giving feedback.
  
-![pep8 no errors](/assets/images/pepnoerrors.png)
-![pep8 Errors](/assets/images/peperrors.png)
+![pep8 no errors](/assets/images/tests/pep_noerrors.png)
+
 
 1. Name selection Test
 * Nothing is entered and prompted to add a name
@@ -103,6 +108,55 @@ After the selection is made a confirmation of the selection is printed
 * When nothing is selected an ivalid prompt and another request is made to the member.
 
 ![Therapy Selection Test](/assets/images/tests/therapist_nothing_selected.png)
+
+
+# Frameworks: Libraries & Programs Used
+GitPod - to create application in a cloud environment
+GitHub - to store my repository .
+Lucid - Create a flow chart.
+Heroku - Deployment for a python application evironment.
+VS studio code to edit and store saved editable code.
+
+# Deployment
+
+log in to heroku
+create a new app
+navigate to settings
+add the following KEY/VALUE pairs:
+CREDS + copy/paste data from creds.json file
+PORT + 8000
+add build packs (in this order)
+Python
+nodejs
+go to GitPod terminal
+type the following commands into the terminal:
+heroku login -i
+enter in username + password
+heroku apps
+heroku git:remote -a my-app-name
+git add .
+git commit -m "Deploy to Heroku cia CLI"
+git push origin main
+git push heroku main
+
+# Credits
+
+[StackOverflow](https://stackoverflow.com/questions/522563/accessing-the-index-in-for-loops) provided the reminder for how to index my 'for loop'.
+
+[Programiz](https://www.programiz.com/python-programming/methods/string/isnumeric) Numeric validations
+
+[Programiz](https://www.programiz.com/python-programming/methods/string/isalpha) Alphabet validations
+
+[Programiz](https://www.programiz.com/python-programming/methods/string/isalpha) Inumerate method for displaying lists
+
+[Stack Overflow](https://stackoverflow.com/questions/40275866/pycharm-shows-pep8-expected-2-blank-lines-found-1) blank lines
+
+Instructions on adding (Termcolor)[https://pypi.org/project/termcolor/] came from [StackOverflow](https://stackoverflow.com/questions/51530437/no-module-named-termcolor).
+
+
+I want to thank my fellow student Lauren-Nicole for testing and Al-Amin Sanusi for keeping my head cool. 
+
+My mentor Akshat Garg for his patience, clarity and just overall awesome attitude.
 
 
 
