@@ -66,7 +66,7 @@ def take_customer_name_input():
     """
     try:
         customer_name = input("Please enter your"
-                              " name for a booking:\n").capitalize()
+                              " name for a booking:\n").capitalize().strip()
         if customer_name.isnumeric():
             raise ValueError('Please enter letters A-Z')
         elif len(customer_name) > 20:
