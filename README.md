@@ -14,11 +14,11 @@ Link to the live Application
 ### Purpose: 
 1. Gives Loves Massages Administration a Booking application to share with their members. Store data from their user and directly updates to a Google Document where the administration can follow up with their members.
 
-2. Allows current members to create their booking for a free massage by adding their name, selecting their type of Therapy. Their Therapist, and printing out a confirmation.
+2. Allows current members to create their booking for a free massage by adding their name, selecting their type of Therapy, their Therapist, and printing out a confirmation.
 
 3. The user experience of the administration is to gather data from their current members. Name, therapy and therapist selections to create a booking for their members and back-end administration to follow up. 
 
-To add function more Therapist's and Therapies can be added to the list's. Automatically adding them as a list item 1-4 or 5 or removing a list item will automatically shorten the displayed list.
+To add function, the algorith adds more Therapist's and Therapies Automatically adding them as a list item 1-4 or 5 or removing a list item will automatically shorten the displayed list.
 
 # Flow chart of the program functions
 
@@ -173,8 +173,14 @@ as it does give the user a generic invalid message and it returns back to the ma
 I have used two if not statements for the digit() method and numeric() method 
 I have used if alpha() method and it wont allow me to use these methods.
 
+
+if not digit
 ![if not digit](/assets/images/tests/isdigit.png)
+
+if not numeric
 ![if not numeric](/assets/images/tests/isnumeric..%20test.png)
+
+if alpha
 ![if alpha](/assets/images/tests/isalpha.png)
 
 
