@@ -126,14 +126,14 @@ def update_worksheet(booking):
     Receives list of intergers to be inserted into a worksheet
     Update the relevant worksheet with the data provided
         """
-    print(colored(("Updating our bookings is in progress."), "blue"))
+    print(colored(("Updating our bookings is in progress."), "magenta"))
     worksheet_to_update = SHEET.worksheet("bookings")
     worksheet_to_update.append_row(booking.get_booking_data())
     print(colored(("\n Thank you {} for choosing {} for {}"
                    .format(booking.customer_name, booking.therapist_name,
                            booking.therapy_name)), "yellow"))
-    print(colored(("\nYour booking has been updated!\n"), "blue"))
-    print(colored(("Your therapist will be contacting you.\n"), "bue"))
+    print(colored(("\nYour booking has been updated!\n"), "magenta"))
+    print(colored(("Your therapist will be contacting you.\n"), "magenta"))
 
 
 def main():
