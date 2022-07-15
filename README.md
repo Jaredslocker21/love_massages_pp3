@@ -70,10 +70,10 @@ After the selection is made a confirmation of the selection is printed
 
 
 # Testing
- * 7/5 Tested google doc is being read and data is printed in the console and it is.
+ * 7/5/22 Tested google doc is being read and data is printed in the console and it is.
   Inputs are returning data and printing a response.
 
-  * 7/15 Lauren-Nicole for testing the application and giving feedback.
+  * 7/15/22 Lauren-Nicole for testing the application and giving feedback.
  
 ![pep8 no errors](/assets/images/tests/pep_noerrors.png)
 
@@ -161,6 +161,23 @@ Instructions on adding (Termcolor)[https://pypi.org/project/termcolor/] came fro
 I want to thank my fellow student Lauren-Nicole for testing and Al-Amin Sanusi for keeping my head cool. 
 
 My mentor Akshat Garg for his patience, clarity and just overall awesome attitude.
+
+
+
+
+# Bugs
+
+This bug has no affect on the overall function it is just an aesthetic issue..
+as it does give the user a generic invalid message and it returns back to the main function to allow the user to renter their numeric function I have not been able to find a solution yet.
+
+I have used two if not statements for the digit() method and numeric() method 
+I have used if alpha() method and it wont allow me to use these methods.
+
+![if not digit](/assets/images/tests/isdigit.png)
+![if not numeric](/assets/images/tests/isnumeric..%20test.png)
+![if alpha](/assets/images/tests/isalpha.png)
+
+
 
 
 
